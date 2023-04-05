@@ -46,6 +46,7 @@
     "style-loader": "^3.3.2",
     "stylus": "^0.59.0",
     "stylus-loader": "^7.1.0",
+    "thread-loader": "^3.0.4",
     "ts-node": "^10.9.1",
     "webpack-dev-server": "^4.13.2",
     "webpack-merge": "^5.8.0",

@@ -45,7 +45,9 @@ const baseConfig: Configuration = {
       // ts
       {
         test: /.(ts|tsx)$/, // 匹配.ts, tsx文件
-        use: 'babel-loader',
+        use: ['babel-loader'],
+        // use: ['thread-loader', 'babel-loader'],
+        // 多线程打包，甚用，最好是项目变大之后再用
       },
       // css
       {
