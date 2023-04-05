@@ -46,7 +46,8 @@
     "stylus-loader": "^7.1.0",
     "ts-node": "^10.9.1",
     "webpack-dev-server": "^4.13.2",
-    "webpack-merge": "^5.8.0"
+    "webpack-merge": "^5.8.0",
+    "webpackbar": "^5.0.2"
   },
   "dependencies": {
     "dotenv": "^16.0.3"

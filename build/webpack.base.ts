@@ -2,8 +2,9 @@
 import { Configuration, DefinePlugin } from 'webpack'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import * as dotenv from 'dotenv'
-const path = require('path')
+import WebpackBar from 'webpackbar'
 
+const path = require('path')
 const cssRegex = /\.css$/
 const sassRegex = /\.(scss|sass)$/
 const lessRegex = /\.less$/
@@ -142,6 +143,11 @@ const baseConfig: Configuration = {
   },
   // plugins
   plugins: [
+    new WebpackBar({
+      color: '#85d', // 默认green，进度条颜色支持HEX
+      basic: false, // 默认true，启用一个简单的日志报告器
+      profile: false, // 默认false，启用探查器。
+    }),
     new HtmlWebpackPlugin({
       title: 'webpack5-react-ts',
       filename: 'index.html',
