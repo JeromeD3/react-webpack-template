@@ -45,6 +45,7 @@ const baseConfig: Configuration = {
       // ts
       {
         test: /.(ts|tsx)$/, // 匹配.ts, tsx文件
+        exclude: /node_modules/, // 排除node_modules文件夹,一般第三方库已经编译好了，不需要我们去解析
         use: ['babel-loader'],
         // use: ['thread-loader', 'babel-loader'],
         // 多线程打包，甚用，最好是项目变大之后再用
