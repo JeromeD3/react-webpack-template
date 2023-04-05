@@ -10,13 +10,18 @@ const sassRegex = /\.(scss|sass)$/
 const lessRegex = /\.less$/
 const stylRegex = /\.styl$/
 
+
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const isDev = process.env.NODE_ENV === 'development' // 是否是开发模式
+
+
 // 加载配置文件
 const envConfig = dotenv.config({
   path: path.resolve(__dirname, '../env/.env.' + process.env.BASE_ENV),
 })
 
 const styleLoadersArray = [
-  'style-loader',
+  isDev ? "style-loader" : MiniCssExtractPlugin.loader, // 开发环境使用style-looader,打包模式抽离css
   {
     loader: 'css-loader',
     options: {
