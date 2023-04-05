@@ -1,5 +1,10 @@
 lockfileVersion: '6.0'
 
+dependencies:
+  dotenv:
+    specifier: ^16.0.3
+    version: 16.0.3
+
 devDependencies:
   '@babel/core':
     specifier: ^7.21.4
@@ -13,6 +18,9 @@ devDependencies:
   '@babel/preset-typescript':
     specifier: ^7.21.4
     version: 7.21.4(@babel/core@7.21.4)
+  '@types/node':
+    specifier: ^18.15.11
+    version: 18.15.11
   '@types/react':
     specifier: ^18.0.33
     version: 18.0.33
@@ -28,6 +36,9 @@ devDependencies:
   core-js:
     specifier: ^3.30.0
     version: 3.30.0
+  cross-env:
+    specifier: ^7.0.3
+    version: 7.0.3
   css-loader:
     specifier: ^6.7.3
     version: 6.7.3(webpack@5.77.0)
@@ -2101,6 +2112,14 @@ packages:
     resolution: {integrity: sha512-dcKFX3jn0MpIaXjisoRvexIJVEKzaq7z2rZKxf+MSr9TkdmHmsU4m2lcLojrj/FHl8mk5VxMmYA+ftRkP/3oKQ==}
     dev: true
 
+  /cross-env@7.0.3:
+    resolution: {integrity: sha512-+/HKd6EgcQCJGh2PSjZuUitQBQynKor4wrFbRg4DtAgS1aWO+gU52xpH7M9ScGgXSYmAVS9bIJ8EzuaGw0oNAw==}
+    engines: {node: '>=10.14', npm: '>=6', yarn: '>=1'}
+    hasBin: true
+    dependencies:
+      cross-spawn: 7.0.3
+    dev: true
+
   /cross-spawn@7.0.3:
     resolution: {integrity: sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w==}
     engines: {node: '>= 8'}
@@ -2268,6 +2287,11 @@ packages:
       no-case: 3.0.4
       tslib: 2.5.0
     dev: true
+
+  /dotenv@16.0.3:
+    resolution: {integrity: sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==}
+    engines: {node: '>=12'}
+    dev: false
 
   /ee-first@1.1.1:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}

@@ -1,22 +1,34 @@
-import path from "path";
-import { Configuration } from "webpack";
-import { merge } from "webpack-merge";
-import CopyPlugin from "copy-webpack-plugin";
-import baseConfig from "./webpack.base";
+//  开发环境配置
+import path from 'path'
+import { merge } from 'webpack-merge'
+import { Configuration as WebpackConfiguration } from 'webpack'
+import { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-server'
+import baseConfig from './webpack.base'
 
-const prodConfig: Configuration = merge(baseConfig, {
-  mode: "production", // 生产模式,会开启tree-shaking和压缩代码,以及其他优化
-  plugins: [
-    new CopyPlugin({
-      patterns: [
-        {
-          from: path.resolve(__dirname, "../public"), // 复制public下文件
-          to: path.resolve(__dirname, "../dist"), // 复制到dist目录中
-          filter: (source) => !source.includes("index.html"), // 忽略index.html
-        },
-      ],
-    }),
-  ],
-});
+interface Configuration extends WebpackConfiguration {
+  devServer?: WebpackDevServerConfiguration
+}
 
-export default prodConfig;
+const host = '127.0.0.1'
+const port = '8082'
+
+// 合并公共配置,并添加开发环境配置
+const devConfig: Configuration = merge(baseConfig, {
+  mode: 'development', // 开发模式,打包更加快速,省了代码优化步骤
+  devtool: 'eval-cheap-module-source-map', // 可以定位到源代码的错误位置
+  devServer: {
+    host,
+    port,
+    open: true, // 是否自动打开
+    compress: false, // gzip压缩,开发环境不开启，提升热更新速度
+    hot: true, // 开启热更新
+    historyApiFallback: true, // 解决history路由404问题
+    setupExitSignals: true, // 允许在 SIGINT 和 SIGTERM 信号时关闭开发服务器和退出进程。
+    static: {
+      directory: path.join(__dirname, '../public'), // 托管静态资源public文件夹
+    },
+    headers: { 'Access-Control-Allow-Origin': '*' },
+  },
+})
+
+export default devConfig

@@ -1,8 +1,13 @@
 //  公共配置
-import { Configuration } from 'webpack'
+import { Configuration, DefinePlugin } from 'webpack'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
-
+import * as dotenv from 'dotenv'
 const path = require('path')
+
+// 加载配置文件
+const envConfig = dotenv.config({
+  path: path.resolve(__dirname, '../env/.env.' + process.env.BASE_ENV),
+})
 
 const baseConfig: Configuration = {
   entry: path.join(__dirname, '../src/index.tsx'), // 入口文件
@@ -36,11 +41,25 @@ const baseConfig: Configuration = {
       filename: 'index.html',
       // 复制 'index.html' 文件，并自动引入打包输出的所有资源（js/css）
       template: path.join(__dirname, '../public/index.html'),
+      inject: true, // 自动注入静态资源
+      hash: true,
+      cache: false,
       // 压缩html资源
       minify: {
+        removeAttributeQuotes: true, // 去除属性引号
         collapseWhitespace: true, //去空格
         removeComments: true, // 去注释
+        minifyJS: true, // 在脚本元素和事件属性中缩小JavaScript(使用UglifyJS)
+        minifyCSS: true, // 缩小CSS样式元素和样式属性F
       },
+      nodeModules: path.resolve(__dirname, '../node_modules'),
+    }),
+    new DefinePlugin({
+      // https://www.webpackjs.com/plugins/define-plugin/
+      // 允许在 编译时 将你代码中的变量替换为其他值或表达式
+      'process.env': JSON.stringify(envConfig.parsed),
+      'process.env.BASE_ENV': JSON.stringify(process.env.BASE_ENV),
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
     }),
   ],
 }
