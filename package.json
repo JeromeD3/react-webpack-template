@@ -48,6 +48,7 @@
     "stylus-loader": "^7.1.0",
     "thread-loader": "^3.0.4",
     "ts-node": "^10.9.1",
+    "webpack-bundle-analyzer": "^4.8.0",
     "webpack-dev-server": "^4.13.2",
     "webpack-merge": "^5.8.0",
     "webpackbar": "^5.0.2"
