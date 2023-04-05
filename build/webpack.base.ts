@@ -174,6 +174,10 @@ const baseConfig: Configuration = {
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
     }),
   ],
+  // 缓存
+  cache: {
+    type: 'filesystem', // 使用文件缓存
+  },
 }
 
 export default baseConfig
