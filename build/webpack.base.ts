@@ -9,11 +9,12 @@ const cssRegex = /\.css$/
 const sassRegex = /\.(scss|sass)$/
 const lessRegex = /\.less$/
 const stylRegex = /\.styl$/
-
+const imageRegex = /\.(png|jpe?g|gif|svg)$/i
+const fontRegex = /.(woff2?|eot|ttf|otf)$/
+const mediaRegex = /.(mp4|webm|ogg|mp3|wav|flac|aac)$/
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const isDev = process.env.NODE_ENV === 'development' // 是否是开发模式
-
 
 // 加载配置文件
 const envConfig = dotenv.config({
@@ -21,7 +22,7 @@ const envConfig = dotenv.config({
 })
 
 const styleLoadersArray = [
-  isDev ? "style-loader" : MiniCssExtractPlugin.loader, // 开发环境使用style-looader,打包模式抽离css
+  isDev ? 'style-loader' : MiniCssExtractPlugin.loader, // 开发环境使用style-looader,打包模式抽离css
   {
     loader: 'css-loader',
     options: {
@@ -38,7 +39,7 @@ const baseConfig: Configuration = {
   entry: path.join(__dirname, '../src/index.tsx'), // 入口文件
   // 打包出口文件
   output: {
-    filename: 'static/js/[name].js', // 每个输出js的名称
+    filename: 'static/js/[name].[chunkhash:8].js', // 每个输出js的名称
     path: path.join(__dirname, '../dist'), // 打包结果输出路径
     clean: true, // webpack4需要配置clean-webpack-plugin来删除dist文件,webpack5内置了
     publicPath: '/', // 打包后文件的公共前缀路径
@@ -92,7 +93,7 @@ const baseConfig: Configuration = {
       },
       // 图片
       {
-        test: /\.(png|jpe?g|gif|svg)$/i, // 匹配图片文件
+        test: imageRegex, // 匹配图片文件
         type: 'asset', // type选择asset
         parser: {
           dataUrlCondition: {
@@ -100,12 +101,12 @@ const baseConfig: Configuration = {
           },
         },
         generator: {
-          filename: 'static/images/[hash][ext][query]', // 文件输出目录和命名
+          filename: 'static/images/[name].[contenthash:8][ext]', // 文件输出目录和命名
         },
       },
       // 字体
       {
-        test: /.(woff2?|eot|ttf|otf)$/, // 匹配字体图标文件
+        test: fontRegex, // 匹配字体图标文件
         type: 'asset', // type选择asset
         parser: {
           dataUrlCondition: {
@@ -113,12 +114,12 @@ const baseConfig: Configuration = {
           },
         },
         generator: {
-          filename: 'static/fonts/[hash][ext][query]', // 文件输出目录和命名
+          filename: 'static/fonts/[name].[contenthash:8][ext]', // 文件输出目录和命名
         },
       },
       //  媒体文件
       {
-        test: /.(mp4|webm|ogg|mp3|wav|flac|aac)$/, // 匹配媒体文件
+        test: mediaRegex, // 匹配媒体文件
         type: 'asset', // type选择asset
         parser: {
           dataUrlCondition: {
@@ -126,7 +127,7 @@ const baseConfig: Configuration = {
           },
         },
         generator: {
-          filename: 'static/media/[hash][ext][query]', // 文件输出目录和命名
+          filename: 'static/media/[name].[contenthash:8][ext]', // 文件输出目录和命名
         },
       },
       // json
