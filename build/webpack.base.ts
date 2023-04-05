@@ -4,10 +4,27 @@ import HtmlWebpackPlugin from 'html-webpack-plugin'
 import * as dotenv from 'dotenv'
 const path = require('path')
 
+const cssRegex = /\.css$/
+const sassRegex = /\.(scss|sass)$/
+const lessRegex = /\.less$/
+const stylRegex = /\.styl$/
+
 // 加载配置文件
 const envConfig = dotenv.config({
   path: path.resolve(__dirname, '../env/.env.' + process.env.BASE_ENV),
 })
+
+const styleLoadersArray = [
+  'style-loader',
+  {
+    loader: 'css-loader',
+    options: {
+      modules: {
+        localIdentName: '[path][name]__[local]--[hash:5]',
+      },
+    },
+  },
+]
 
 const baseConfig: Configuration = {
   entry: path.join(__dirname, '../src/index.tsx'), // 入口文件
@@ -26,8 +43,35 @@ const baseConfig: Configuration = {
         use: 'babel-loader',
       },
       {
-        test: /.css$/, //匹配 css 文件
-        use: ['style-loader', 'css-loader'],
+        test: cssRegex, //匹配 css 文件
+        use: styleLoadersArray,
+      },
+      {
+        test: lessRegex,
+        use: [
+          ...styleLoadersArray,
+          {
+            loader: 'less-loader',
+            options: {
+              lessOptions: {
+                importLoaders: 2,
+                // 可以加入modules: true，这样就不需要在less文件名加module了
+                // 或者直接添加声明文件.d.ts
+                // modules: true,
+                // 如果要在less中写类型js的语法，需要加这一个配置
+                javascriptEnabled: true,
+              },
+            },
+          },
+        ],
+      },
+      {
+        test: sassRegex,
+        use: [...styleLoadersArray, 'sass-loader'],
+      },
+      {
+        test: stylRegex,
+        use: [...styleLoadersArray, 'stylus-loader'],
       },
     ],
   },
@@ -37,7 +81,7 @@ const baseConfig: Configuration = {
     alias: {
       '@': path.join(__dirname, '../src'),
     },
-    modules: ['../node_modules']
+    modules: ['../node_modules'],
     // modules: [path.resolve(__dirname, '../node_modules')], // 查找第三方模块只在本项目的node_modules中查找
   },
   // plugins
