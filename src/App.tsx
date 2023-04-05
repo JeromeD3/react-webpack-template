@@ -6,6 +6,8 @@ import stylStyles from './app.styl'
 import smallImg from '@/assets/imgs/1.jpg'
 import bigImg from '@/assets/imgs/image-20230209005812767.png'
 
+import Classcomp from './components/class'
+
 const memberList = [
   {
     name: 'ian1',
@@ -44,6 +46,7 @@ function App() {
             <li key={item.age}>{item.name}</li>
           ))}
         </ul>
+        <Classcomp></Classcomp>
       </div>
     </div>
   )
