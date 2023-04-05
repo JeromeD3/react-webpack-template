@@ -33,6 +33,11 @@ const baseConfig: Configuration = {
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.jsx', '.js'],
+    // 别名需要配置两个地方，这里和 tsconfig.json
+    alias: {
+      '@': path.join(__dirname, '../src'),
+    },
+    // modules: [path.resolve(__dirname, '../node_modules')], // 查找第三方模块只在本项目的node_modules中查找
   },
   // plugins
   plugins: [
@@ -63,5 +68,6 @@ const baseConfig: Configuration = {
     }),
   ],
 }
+
 
 export default baseConfig
