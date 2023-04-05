@@ -78,6 +78,9 @@ devDependencies:
   sass-loader:
     specifier: ^13.2.2
     version: 13.2.2(node-sass@8.0.0)(webpack@5.77.0)
+  speed-measure-webpack-plugin:
+    specifier: ^1.5.0
+    version: 1.5.0(webpack@5.77.0)
   style-loader:
     specifier: ^3.3.2
     version: 3.3.2(webpack@5.77.0)
@@ -5067,6 +5070,16 @@ packages:
       spdy-transport: 3.0.0
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /speed-measure-webpack-plugin@1.5.0(webpack@5.77.0):
+    resolution: {integrity: sha512-Re0wX5CtM6gW7bZA64ONOfEPEhwbiSF/vz6e2GvadjuaPrQcHTQdRGsD8+BE7iUOysXH8tIenkPCQBEcspXsNg==}
+    engines: {node: '>=6.0.0'}
+    peerDependencies:
+      webpack: ^1 || ^2 || ^3 || ^4 || ^5
+    dependencies:
+      chalk: 4.1.2
+      webpack: 5.77.0
     dev: true
 
   /ssri@8.0.1:
