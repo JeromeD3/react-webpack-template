@@ -39,6 +39,9 @@ devDependencies:
   babel-loader:
     specifier: ^9.1.2
     version: 9.1.2(@babel/core@7.21.4)(webpack@5.77.0)
+  compression-webpack-plugin:
+    specifier: ^10.0.0
+    version: 10.0.0(webpack@5.77.0)
   copy-webpack-plugin:
     specifier: ^11.0.0
     version: 11.0.0(webpack@5.77.0)
@@ -96,6 +99,9 @@ devDependencies:
   stylus-loader:
     specifier: ^7.1.0
     version: 7.1.0(stylus@0.59.0)(webpack@5.77.0)
+  terser-webpack-plugin:
+    specifier: ^5.3.7
+    version: 5.3.7(webpack@5.77.0)
   thread-loader:
     specifier: ^3.0.4
     version: 3.0.4(webpack@5.77.0)
@@ -2497,6 +2503,17 @@ packages:
     engines: {node: '>= 0.6'}
     dependencies:
       mime-db: 1.52.0
+    dev: true
+
+  /compression-webpack-plugin@10.0.0(webpack@5.77.0):
+    resolution: {integrity: sha512-wLXLIBwpul/ALcm7Aj+69X0pYT3BYt6DdPn3qrgBIh9YejV9Bju9ShhlAsjujLyWMo6SAweFIWaUoFmXZNuNrg==}
+    engines: {node: '>= 14.15.0'}
+    peerDependencies:
+      webpack: ^5.1.0
+    dependencies:
+      schema-utils: 4.0.0
+      serialize-javascript: 6.0.1
+      webpack: 5.77.0
     dev: true
 
   /compression@1.7.4:
