@@ -5,7 +5,9 @@
     .box {
         color: @color;
         background-color: lightblue;
-        transform: translateX(100);
+        translate: 100px;
+        border: 2px solid red;
+        animation: myfirst 5s;
 
         &:before{
             @arr: 'hello', 'world';
@@ -15,3 +17,9 @@
 }
 
 
+@keyframes myfirst
+{
+    from {background: red;}
+    to {background: yellow;}
+}
+ 

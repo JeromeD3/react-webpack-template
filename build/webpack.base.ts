@@ -24,6 +24,8 @@ const styleLoadersArray = [
       },
     },
   },
+  // 用于处理css3前缀在浏览器中的兼容
+  'postcss-loader',
 ]
 
 const baseConfig: Configuration = {
