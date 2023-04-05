@@ -41,14 +41,17 @@ const baseConfig: Configuration = {
   // loader 配置
   module: {
     rules: [
+      // ts
       {
         test: /.(ts|tsx)$/, // 匹配.ts, tsx文件
         use: 'babel-loader',
       },
+      // css
       {
         test: cssRegex, //匹配 css 文件
         use: styleLoadersArray,
       },
+      // less
       {
         test: lessRegex,
         use: [
@@ -68,14 +71,17 @@ const baseConfig: Configuration = {
           },
         ],
       },
+      // sass
       {
         test: sassRegex,
         use: [...styleLoadersArray, 'sass-loader'],
       },
+      // stylus
       {
         test: stylRegex,
         use: [...styleLoadersArray, 'stylus-loader'],
       },
+      // 图片
       {
         test: /\.(png|jpe?g|gif|svg)$/i, // 匹配图片文件
         type: 'asset', // type选择asset
@@ -86,6 +92,41 @@ const baseConfig: Configuration = {
         },
         generator: {
           filename: 'static/images/[hash][ext][query]', // 文件输出目录和命名
+        },
+      },
+      // 字体
+      {
+        test: /.(woff2?|eot|ttf|otf)$/, // 匹配字体图标文件
+        type: 'asset', // type选择asset
+        parser: {
+          dataUrlCondition: {
+            maxSize: 10 * 1024, // 小于10kb转base64
+          },
+        },
+        generator: {
+          filename: 'static/fonts/[hash][ext][query]', // 文件输出目录和命名
+        },
+      },
+      //  媒体文件
+      {
+        test: /.(mp4|webm|ogg|mp3|wav|flac|aac)$/, // 匹配媒体文件
+        type: 'asset', // type选择asset
+        parser: {
+          dataUrlCondition: {
+            maxSize: 10 * 1024, // 小于10kb转base64
+          },
+        },
+        generator: {
+          filename: 'static/media/[hash][ext][query]', // 文件输出目录和命名
+        },
+      },
+      // json
+      {
+        test: /\.json$/,
+        type: 'asset/resource', // 将json文件视为文件类型
+        generator: {
+          // 这里专门针对json文件的处理
+          filename: 'static/json/[name].[hash][ext][query]',
         },
       },
     ],

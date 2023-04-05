@@ -4,6 +4,7 @@
     "paths": {
       "@/*": ["src/*"]
     },
+    "resolveJsonModule": true,
     "target": "es2016",
     "esModuleInterop": true,
     "module": "commonjs",
