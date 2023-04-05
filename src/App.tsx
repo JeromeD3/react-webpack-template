@@ -8,6 +8,8 @@ import bigImg from '@/assets/imgs/3552951680506830_.pic_hd.jpg'
 import chengzi from '@/assets/imgs/image-20230209005812767.png'
 import memberList from './test.json'
 import ClassComp from '@/components/Class'
+import { Demo1, Demo2 } from '@/components'
+
 
 function App() {
   const [count, setCounts] = useState('')
@@ -18,6 +20,7 @@ function App() {
 
   return (
     <div>
+      <Demo1 />
       <h2>webpack5-react-ts</h2>
       <div className={lessStyles['lessBox']}>
         <div className={lessStyles['box']}>
