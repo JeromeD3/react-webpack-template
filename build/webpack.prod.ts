@@ -5,8 +5,11 @@ import { merge } from 'webpack-merge'
 import CopyPlugin from 'copy-webpack-plugin'
 import baseConfig from './webpack.base'
 
-// import MiniCssExtractPlugin from 'mini-css-extract-plugin'
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+// 检测文件里面的类名和id
+const globAll = require('glob-all')
+// 打包的时候移除未使用到的css样式
+const { PurgeCSSPlugin } = require('purgecss-webpack-plugin')
 
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin'
 // 用于处理 js 的压缩和混淆-> webpack内置，但是手动设置了optimization.minimizer压缩css后,js压缩就失效了，所以需要手动配置
@@ -34,6 +37,19 @@ const prodConfig: Configuration = merge(baseConfig, {
     }),
     new MiniCssExtractPlugin({
       filename: 'static/css/[name].[contenthash:8].css', // 抽离css的输出目录和名称
+    }),
+    // 清理无用css，检测src下所有tsx文件和public下index.html中使用的类名和id和标签名称
+    // 只打包这些文件中用到的样式
+    new PurgeCSSPlugin({
+      paths: globAll.sync([`${path.join(__dirname, '../src')}/**/*`, path.join(__dirname, '../public/index.html')], {
+        nodir: true,
+      }),
+      // 用 only 来指定 purgecss-webpack-plugin 的入口
+      // https://github.com/FullHuman/purgecss/tree/main/packages/purgecss-webpack-plugin
+      only: ['dist'],
+      safelist: {
+        standard: [/^ant-/], // 过滤以ant-开头的类名，哪怕没用到也不删除
+      },
     }),
     // 打包时生成gzip文件
     new CompressionPlugin({
