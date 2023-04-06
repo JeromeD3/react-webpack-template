@@ -15,7 +15,8 @@
     "build:analy": "cross-env NODE_ENV=production BASE_ENV=production webpack -c build/webpack.analy.ts",
     "lint:prettier": "prettier --write --loglevel warn \"src/**/*.{js,ts,json,tsx,css,less,scss,stylus,html,md}\"",
     "lint:md": "npx markdownlint --config .markdownlint.js --fix .",
-    "lint:eslint": "eslint --fix --ext .js,.ts,.tsx ./src --max-warnings=0"
+    "lint:eslint": "eslint --fix --ext .js,.ts,.tsx ./src --max-warnings=0",
+    "pre-check": "tsc && npx lint-staged"
   },
   "keywords": [],
   "author": "",
