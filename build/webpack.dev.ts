@@ -2,9 +2,11 @@
 import path from 'path'
 import { merge } from 'webpack-merge'
 import webpack, { Configuration as WebpackConfiguration } from 'webpack'
-import WebpackDevServer, { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-server'
-import baseConfig from './webpack.base'
+import WebpackDevServer, {
+  Configuration as WebpackDevServerConfiguration
+} from 'webpack-dev-server'
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
+import baseConfig from './webpack.base'
 
 interface Configuration extends WebpackConfiguration {
   devServer?: WebpackDevServerConfiguration
@@ -30,8 +32,8 @@ const devConfig: Configuration = merge(baseConfig, {
    */
   devtool: 'eval-cheap-module-source-map', // 可以定位到源代码的错误位置
   plugins: [
-    new ReactRefreshWebpackPlugin(), // 添加热更新插件
-  ],
+    new ReactRefreshWebpackPlugin() // 添加热更新插件
+  ]
 })
 
 const devServer = new WebpackDevServer(
@@ -44,9 +46,9 @@ const devServer = new WebpackDevServer(
     historyApiFallback: true, // 解决history路由404问题
     setupExitSignals: true, // 允许在 SIGINT 和 SIGTERM 信号时关闭开发服务器和退出进程。
     static: {
-      directory: path.join(__dirname, '../public'), // 托管静态资源public文件夹
+      directory: path.join(__dirname, '../public') // 托管静态资源public文件夹
     },
-    headers: { 'Access-Control-Allow-Origin': '*' },
+    headers: { 'Access-Control-Allow-Origin': '*' }
   },
   webpack(devConfig)
 )
