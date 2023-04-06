@@ -1,4 +1,4 @@
-//  公共配置
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { Configuration, DefinePlugin } from 'webpack'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import * as dotenv from 'dotenv'
@@ -24,19 +24,23 @@ const envConfig = dotenv.config({
   path: path.resolve(__dirname, `../env/.env.${process.env.BASE_ENV}`)
 })
 
-const styleLoadersArray = [
-  isDev ? 'style-loader' : MiniCssExtractPlugin.loader, // 开发环境使用style-looader,打包模式抽离css
-  {
-    loader: 'css-loader',
-    options: {
-      modules: {
-        localIdentName: '[path][name]__[local]--[hash:5]'
-      }
-    }
-  },
-  // 用于处理css3前缀在浏览器中的兼容
-  'postcss-loader'
-]
+const getStyleLoaders = (cssLoaderOpts: any) => {
+  const loaders = [
+    isDev ? 'style-loader' : MiniCssExtractPlugin.loader, // 开发环境使用style-looader,打包模式抽离css
+    {
+      /** 三个作用：
+       * 1. CSS 模块化：将 CSS 模块化可以避免命名冲突，提高代码复用性。
+       * 2. 自动添加浏览器前缀：在 CSS 样式中自动添加浏览器前缀，以提高浏览器兼容性。
+       * 3. 将 CSS 中的 URL 转换成 require：将 CSS 中的图片路径转换成 Webpack 所需的 require 路径。
+       */
+      loader: 'css-loader',
+      options: cssLoaderOpts
+    },
+    'postcss-loader'
+  ]
+
+  return loaders
+}
 
 const baseConfig: Configuration = {
   entry: path.join(__dirname, '../src/index.tsx'), // 入口文件
@@ -62,13 +66,27 @@ const baseConfig: Configuration = {
       // css
       {
         test: cssRegex, // 匹配 css 文件
-        use: styleLoadersArray
+        use: getStyleLoaders({
+          // importLoaders: 1, // 指定在 CSS 中 @import 的文件也要被 css-loader 处理，默认为 0。
+          // 启用 CSS 模块化，默认为 false。
+          modules: {
+            mode: 'icss',
+            localIdentName: '[path][name]__[local]--[hash:5]'
+          }
+        })
       },
       // less
       {
         test: lessRegex,
         use: [
-          ...styleLoadersArray,
+          ...getStyleLoaders({
+            importLoaders: 2, // 指定在 CSS 中 @import 的文件也要被 css-loader 处理，默认为 0。
+            // 启用 CSS 模块化，默认为 false。
+            modules: {
+              mode: 'local',
+              localIdentName: '[path][name]__[local]--[hash:5]'
+            }
+          }),
           {
             loader: 'less-loader',
             options: {
@@ -87,12 +105,38 @@ const baseConfig: Configuration = {
       // sass
       {
         test: sassRegex,
-        use: [...styleLoadersArray, 'sass-loader']
+        use: [
+          ...getStyleLoaders({
+            importLoaders: 2, // 指定在 CSS 中 @import 的文件也要被 css-loader 处理，默认为 0。
+            // 启用 CSS 模块化，默认为 false。
+            modules: {
+              mode: 'local',
+              localIdentName: '[path][name]__[local]--[hash:5]'
+            }
+          }),
+          {
+            loader: 'sass-loader',
+            options: {
+              // eslint-disable-next-line import/no-extraneous-dependencies, global-require
+              implementation: require('sass') // 使用dart-sass代替node-sass
+            }
+          }
+        ]
       },
       // stylus
       {
         test: stylRegex,
-        use: [...styleLoadersArray, 'stylus-loader']
+        use: [
+          ...getStyleLoaders({
+            importLoaders: 2, // 指定在 CSS 中 @import 的文件也要被 css-loader 处理，默认为 0。
+            // 启用 CSS 模块化，默认为 false。
+            modules: {
+              mode: 'local',
+              localIdentName: '[path][name]__[local]--[hash:5]'
+            }
+          }),
+          'stylus-loader'
+        ]
       },
       // 图片
       {
