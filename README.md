@@ -1,8 +1,83 @@
 # react-webpack-template
 
-- 一个基于webpack5的react项目模板
+> 一个基于webpack5的react项目模板
 
-## tsconfig.json配置参考
+## webpack相关配置
+
+### 样式与处理器
+
+- 引入 less、sass（scss）、stylus
+  - 处理CSS3前缀在浏览器中的兼容
+- 处理其他常用资源
+  - 处理图片
+  - 处理字体和媒体
+  - 处理json资源
+- babel 处理 js 非标准语法 (装饰器)
+
+### 热更新
+
+> 浏览器会自动刷新后再显示修改后的内容，但我们想要的不是刷新浏览器，而是在不需要刷 新浏览器的前提下模块热更新，并且能够保留react组件的状态。
+
+### webpack构建速度优化
+
+- webpack 进度条
+- 构建耗时统计
+- 开启持久化存储缓存
+- 开启多线程 loader
+- 缩小构建目标（remove node_modules）
+- devtools 配置 (source-map ...)
+
+### webpack 构建产物优化
+
+- bundle 体积分析工具
+- 样式提取 MiniCssExtractPlugin(方便热替换)
+- 样式压缩
+- js 压缩
+- 文件指纹 (hash -> 浏览器缓存)
+- 代码分割 (分割第三方代码 -> 打包)
+- tree-shaking清理未引用js、css
+- 资源懒加载
+- 资源预加载
+- gzip 压缩
+
+## 其他优化 (针对具体项目优化)
+
+- DllPlugin：动态链接库
+- sideEffect：副作用
+- externals: 外包拓展，打包时会忽略配置的依赖，会从上下文中寻找对应变量
+- module.noParse: 匹配到设置的模块，将不进行依赖解析，适合jquery，-= - - boostrap这类不依赖外部模块的包
+- ignorePlugin: 可以使用正则忽略一部分文件，常在使用多语言的包时可以把非中文语言包过滤掉
+
+## 代码质量和git提交规范
+
+### 代码格式
+
+- 代码格式规范和语法检测工具
+  - EditorConfig
+  - ESLint
+  - Prettier
+  - Stylelint
+  - Markdownlint
+
+### 提交规范
+
+- 使用lint-staged优化eslint检测速度
+- 使用tsc检测类型和报错
+- 代码提交前husky检测语法和格式
+- 使用commitlint规范git提交信息
+- Commitizen（个人觉得不好用👎）
+  - cz-git
+- change-log
+
+## ChangeLog
+
+主版本号.次版本号.修订号，版本号递增规则如下：
+
+- 主版本号(major)：当你做了不兼容的 API 修改，
+- 次版本号(minor)：当你做了向下兼容的功能性新增，可以理解为 Feature 版本，
+- 修订号(patch)：当你做了向下兼容的问题修正，可以理解为 Bug fix 版本。
+
+### tsconfig.json配置参考
 
 ``` json
 {
@@ -59,11 +134,3 @@
   }
 }
 ```
-
-## ChangeLog
-
-主版本号.次版本号.修订号，版本号递增规则如下：
-
-主版本号(major)：当你做了不兼容的 API 修改，
-次版本号(minor)：当你做了向下兼容的功能性新增，可以理解为 Feature 版本，
-修订号(patch)：当你做了向下兼容的问题修正，可以理解为 Bug fix 版本。
