@@ -1,6 +1,8 @@
 // @see: https://cz-git.qbenben.com/zh/guide
 /** @type {import('cz-git').UserConfig} */
 
+// 个人觉得有点多余了，直接按规范写就行了，不用这么麻烦
+
 module.exports = {
   ignores: [commit => commit.includes('init')],
   extends: ['@commitlint/config-conventional'],
