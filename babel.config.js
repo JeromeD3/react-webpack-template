@@ -14,16 +14,16 @@ module.exports = {
         targets: { browsers: ['> 1%', 'last 2 versions', 'not ie <= 8'] },
         useBuiltIns: 'usage', // 根据配置的浏览器兼容,以及代码中使用到的api进行引入polyfill按需添加
         corejs: 3, // 配置使用core-js使用的版本
-        loose: true,
-      },
+        loose: true
+      }
     ],
     // 如果您使用的是 Babel 和 React 17，您可能需要将 "runtime": "automatic" 添加到配置中。
     // 否则可能会出现错误：Uncaught ReferenceError: React is not defined
     ['@babel/preset-react', { runtime: 'automatic' }],
-    '@babel/preset-typescript',
+    '@babel/preset-typescript'
   ],
   plugins: [
     ['@babel/plugin-proposal-decorators', { legacy: true }],
-    isDEV && require.resolve('react-refresh/babel'), // 如果是开发模式,就启动react热更新插件
-  ].filter(Boolean), // 过滤空值
+    isDEV && require.resolve('react-refresh/babel') // 如果是开发模式,就启动react热更新插件
+  ].filter(Boolean) // 过滤空值
 }
