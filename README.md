@@ -4,6 +4,7 @@
 
 ## tsconfig.json配置参考
 
+``` json
 {
   "compilerOptions": {
 
@@ -57,3 +58,4 @@
     "emitDecoratorMetadata": true          // 为装饰器提供元数据的支持
   }
 }
+```
