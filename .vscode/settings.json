@@ -31,6 +31,8 @@
   },
   "javascript.validate.enable": false,
   "editor.codeActionsOnSave": {
-    "source.fixAll.markdownlint": true
-  }
+    "source.fixAll.markdownlint": true,
+    "source.fixAll.stylelint": true
+  },
+  "stylelint.validate": ["css", "less", "sass", "stylus", "postcss"]
 }
