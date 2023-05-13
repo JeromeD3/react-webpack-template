@@ -81,7 +81,15 @@ const baseConfig: Configuration = {
   module: {
     rules: [
       // ts
-      tsLoader,
+      // tsLoader,
+      {
+        test: tsxRegex,
+        loader: 'esbuild-loader',
+        options: {
+          loader: 'tsx',
+          target: 'es2015'
+        }
+      },
       // {
       //   test: tsxRegex, // 匹配.ts, tsx文件
       //   exclude: /node_modules/, // 排除node_modules文件夹,一般第三方库已经编译好了，不需要我们去解析
