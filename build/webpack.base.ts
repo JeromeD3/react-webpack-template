@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { Configuration, DefinePlugin } from 'webpack'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import * as dotenv from 'dotenv'
@@ -42,6 +41,32 @@ const getStyleLoaders = (cssLoaderOpts: any) => {
   return loaders
 }
 
+const tsLoader = {
+  test: /\.tsx?$/,
+  exclude: /node_modules/,
+  use: {
+    loader: 'swc-loader',
+    options: {
+      jsc: {
+        parser: {
+          tsx: true,
+          syntax: 'typescript',
+          decorators: true
+        },
+        target: 'es5',
+        transform: {
+          react: {
+            // swc-loader will check whether webpack mode is 'development'
+            // and set this automatically starting from 0.1.13. You could also set it yourself.
+            // swc won't enable fast refresh when development is false
+            runtime: 'automatic'
+          }
+        }
+      }
+    }
+  }
+}
+
 const baseConfig: Configuration = {
   entry: path.join(__dirname, '../src/index.tsx'), // 入口文件
   // 打包出口文件
@@ -56,13 +81,14 @@ const baseConfig: Configuration = {
   module: {
     rules: [
       // ts
-      {
-        test: tsxRegex, // 匹配.ts, tsx文件
-        exclude: /node_modules/, // 排除node_modules文件夹,一般第三方库已经编译好了，不需要我们去解析
-        use: ['babel-loader']
-        // use: ['thread-loader', 'babel-loader'],
-        // 多线程打包，甚用，最好是项目变大之后再用
-      },
+      tsLoader,
+      // {
+      //   test: tsxRegex, // 匹配.ts, tsx文件
+      //   exclude: /node_modules/, // 排除node_modules文件夹,一般第三方库已经编译好了，不需要我们去解析
+      //   use: ['babel-loader']
+      //   // use: ['thread-loader', 'babel-loader'],
+      //   // 多线程打包，甚用，最好是项目变大之后再用
+      // },
       // css
       {
         test: cssRegex, // 匹配 css 文件
