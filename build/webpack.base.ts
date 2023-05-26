@@ -4,6 +4,7 @@ import * as dotenv from 'dotenv'
 import WebpackBar from 'webpackbar'
 
 const path = require('path')
+const nodeExternals = require('webpack-node-externals')
 
 const tsxRegex = /\.(ts|tsx)$/
 const cssRegex = /\.css$/
@@ -268,6 +269,8 @@ const baseConfig: Configuration = {
   cache: {
     type: 'filesystem' // 使用文件缓存
   }
+  // 打包排除第三方依赖 --> 一般用于编写第三方库的时候会用到，防止将第三方库打包进去
+  // externals: [nodeExternals()]
 }
 
 export default baseConfig
