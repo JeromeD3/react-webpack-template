@@ -8,9 +8,9 @@ const nodeExternals = require('webpack-node-externals')
 
 const tsxRegex = /\.(ts|tsx)$/
 const cssRegex = /\.css$/
-const sassRegex = /\.(scss|sass)$/
+// const sassRegex = /\.(scss|sass)$/
 const lessRegex = /\.less$/
-const stylRegex = /\.styl$/
+// const stylRegex = /\.styl$/ // 不喜欢用 移除了
 const imageRegex = /\.(png|jpe?g|gif|svg)$/i
 const fontRegex = /.(woff2?|eot|ttf|otf)$/
 const mediaRegex = /.(mp4|webm|ogg|mp3|wav|flac|aac)$/
@@ -138,41 +138,41 @@ const baseConfig: Configuration = {
         ]
       },
       // sass
-      {
-        test: sassRegex,
-        use: [
-          ...getStyleLoaders({
-            importLoaders: 2, // 指定在 CSS 中 @import 的文件也要被 css-loader 处理，默认为 0。
-            // 启用 CSS 模块化，默认为 false。
-            modules: {
-              mode: 'local',
-              localIdentName: '[path][name]__[local]--[hash:5]'
-            }
-          }),
-          {
-            loader: 'sass-loader',
-            options: {
-              // eslint-disable-next-line import/no-extraneous-dependencies, global-require
-              implementation: require('sass') // 使用dart-sass代替node-sass
-            }
-          }
-        ]
-      },
+      // {
+      //   test: sassRegex,
+      //   use: [
+      //     ...getStyleLoaders({
+      //       importLoaders: 2, // 指定在 CSS 中 @import 的文件也要被 css-loader 处理，默认为 0。
+      //       // 启用 CSS 模块化，默认为 false。
+      //       modules: {
+      //         mode: 'local',
+      //         localIdentName: '[path][name]__[local]--[hash:5]'
+      //       }
+      //     }),
+      //     {
+      //       loader: 'sass-loader',
+      //       options: {
+      //         // eslint-disable-next-line import/no-extraneous-dependencies, global-require
+      //         implementation: require('sass') // 使用dart-sass代替node-sass
+      //       }
+      //     }
+      //   ]
+      // },
       // stylus
-      {
-        test: stylRegex,
-        use: [
-          ...getStyleLoaders({
-            importLoaders: 2, // 指定在 CSS 中 @import 的文件也要被 css-loader 处理，默认为 0。
-            // 启用 CSS 模块化，默认为 false。
-            modules: {
-              mode: 'local',
-              localIdentName: '[path][name]__[local]--[hash:5]'
-            }
-          }),
-          'stylus-loader'
-        ]
-      },
+      // {
+      //   test: stylRegex,
+      //   use: [
+      //     ...getStyleLoaders({
+      //       importLoaders: 2, // 指定在 CSS 中 @import 的文件也要被 css-loader 处理，默认为 0。
+      //       // 启用 CSS 模块化，默认为 false。
+      //       modules: {
+      //         mode: 'local',
+      //         localIdentName: '[path][name]__[local]--[hash:5]'
+      //       }
+      //     }),
+      //     'stylus-loader'
+      //   ]
+      // },
       // 图片
       {
         test: imageRegex, // 匹配图片文件
