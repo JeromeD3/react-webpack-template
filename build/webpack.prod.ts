@@ -65,7 +65,6 @@ const prodConfig: Configuration = merge(baseConfig, {
   ],
   optimization: {
     concatenateModules: true, // 开启模块合并
-    usedExports: true, // 开启tree-shaking
     splitChunks: {
       // 分隔代码
       cacheGroups: {
