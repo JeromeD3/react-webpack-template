@@ -19,7 +19,7 @@ interface Configuration extends WebpackConfiguration {
 const openBrowser = require('./utils/openBrowser')
 
 const host = '127.0.0.1'
-const port = '8080'
+const port = '8082'
 
 // 合并公共配置,并添加开发环境配置
 const devConfig: Configuration = merge(baseConfig, {
