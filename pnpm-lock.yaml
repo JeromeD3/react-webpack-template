@@ -4,6 +4,9 @@ dependencies:
   dotenv:
     specifier: ^16.0.3
     version: 16.0.3
+  esbuild:
+    specifier: ^0.17.19
+    version: 0.17.19
 
 devDependencies:
   '@babel/core':
@@ -74,7 +77,7 @@ devDependencies:
     version: 6.7.3(webpack@5.82.1)
   css-minimizer-webpack-plugin:
     specifier: ^5.0.0
-    version: 5.0.0(webpack@5.82.1)
+    version: 5.0.0(esbuild@0.17.19)(webpack@5.82.1)
   cz-git:
     specifier: ^1.6.1
     version: 1.6.1
@@ -200,7 +203,7 @@ devDependencies:
     version: 0.2.3(@swc/core@1.3.57)(webpack@5.82.1)
   terser-webpack-plugin:
     specifier: ^5.3.7
-    version: 5.3.7(@swc/core@1.3.57)(webpack@5.82.1)
+    version: 5.3.7(@swc/core@1.3.57)(esbuild@0.17.19)(webpack@5.82.1)
   thread-loader:
     specifier: ^3.0.4
     version: 3.0.4(webpack@5.82.1)
@@ -209,7 +212,7 @@ devDependencies:
     version: 10.9.1(@swc/core@1.3.57)(@types/node@18.15.11)(typescript@5.0.3)
   webpack:
     specifier: ^5.82.1
-    version: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(webpack-cli@5.0.1)
+    version: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(esbuild@0.17.19)(webpack-cli@5.0.1)
   webpack-bundle-analyzer:
     specifier: ^4.8.0
     version: 4.8.0
@@ -1743,7 +1746,6 @@ packages:
     cpu: [arm64]
     os: [android]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/android-arm@0.17.19:
@@ -1752,7 +1754,6 @@ packages:
     cpu: [arm]
     os: [android]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/android-x64@0.17.19:
@@ -1761,7 +1762,6 @@ packages:
     cpu: [x64]
     os: [android]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/darwin-arm64@0.17.19:
@@ -1770,7 +1770,6 @@ packages:
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/darwin-x64@0.17.19:
@@ -1779,7 +1778,6 @@ packages:
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/freebsd-arm64@0.17.19:
@@ -1788,7 +1786,6 @@ packages:
     cpu: [arm64]
     os: [freebsd]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/freebsd-x64@0.17.19:
@@ -1797,7 +1794,6 @@ packages:
     cpu: [x64]
     os: [freebsd]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/linux-arm64@0.17.19:
@@ -1806,7 +1802,6 @@ packages:
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/linux-arm@0.17.19:
@@ -1815,7 +1810,6 @@ packages:
     cpu: [arm]
     os: [linux]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/linux-ia32@0.17.19:
@@ -1824,7 +1818,6 @@ packages:
     cpu: [ia32]
     os: [linux]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/linux-loong64@0.17.19:
@@ -1833,7 +1826,6 @@ packages:
     cpu: [loong64]
     os: [linux]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/linux-mips64el@0.17.19:
@@ -1842,7 +1834,6 @@ packages:
     cpu: [mips64el]
     os: [linux]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/linux-ppc64@0.17.19:
@@ -1851,7 +1842,6 @@ packages:
     cpu: [ppc64]
     os: [linux]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/linux-riscv64@0.17.19:
@@ -1860,7 +1850,6 @@ packages:
     cpu: [riscv64]
     os: [linux]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/linux-s390x@0.17.19:
@@ -1869,7 +1858,6 @@ packages:
     cpu: [s390x]
     os: [linux]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/linux-x64@0.17.19:
@@ -1878,7 +1866,6 @@ packages:
     cpu: [x64]
     os: [linux]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/netbsd-x64@0.17.19:
@@ -1887,7 +1874,6 @@ packages:
     cpu: [x64]
     os: [netbsd]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/openbsd-x64@0.17.19:
@@ -1896,7 +1882,6 @@ packages:
     cpu: [x64]
     os: [openbsd]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/sunos-x64@0.17.19:
@@ -1905,7 +1890,6 @@ packages:
     cpu: [x64]
     os: [sunos]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/win32-arm64@0.17.19:
@@ -1914,7 +1898,6 @@ packages:
     cpu: [arm64]
     os: [win32]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/win32-ia32@0.17.19:
@@ -1923,7 +1906,6 @@ packages:
     cpu: [ia32]
     os: [win32]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/win32-x64@0.17.19:
@@ -1932,7 +1914,6 @@ packages:
     cpu: [x64]
     os: [win32]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@eslint-community/eslint-utils@4.4.0(eslint@8.37.0):
@@ -2129,7 +2110,7 @@ packages:
       react-refresh: 0.14.0
       schema-utils: 3.1.1
       source-map: 0.7.4
-      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(webpack-cli@5.0.1)
+      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(esbuild@0.17.19)(webpack-cli@5.0.1)
       webpack-dev-server: 4.13.2(webpack-cli@5.0.1)(webpack@5.82.1)
     dev: true
 
@@ -2858,7 +2839,7 @@ packages:
       '@babel/core': 7.21.4
       find-cache-dir: 3.3.2
       schema-utils: 4.0.0
-      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(webpack-cli@5.0.1)
+      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(esbuild@0.17.19)(webpack-cli@5.0.1)
     dev: true
 
   /babel-plugin-polyfill-corejs2@0.3.3(@babel/core@7.21.4):
@@ -3318,7 +3299,7 @@ packages:
     dependencies:
       schema-utils: 4.0.0
       serialize-javascript: 6.0.1
-      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(webpack-cli@5.0.1)
+      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(esbuild@0.17.19)(webpack-cli@5.0.1)
     dev: true
 
   /compression@1.7.4:
@@ -3584,7 +3565,7 @@ packages:
       normalize-path: 3.0.0
       schema-utils: 4.0.0
       serialize-javascript: 6.0.1
-      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(webpack-cli@5.0.1)
+      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(esbuild@0.17.19)(webpack-cli@5.0.1)
     dev: true
 
   /core-js-compat@3.30.0:
@@ -3681,10 +3662,10 @@ packages:
       postcss-modules-values: 4.0.0(postcss@8.4.21)
       postcss-value-parser: 4.2.0
       semver: 7.3.8
-      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(webpack-cli@5.0.1)
+      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(esbuild@0.17.19)(webpack-cli@5.0.1)
     dev: true
 
-  /css-minimizer-webpack-plugin@5.0.0(webpack@5.82.1):
+  /css-minimizer-webpack-plugin@5.0.0(esbuild@0.17.19)(webpack@5.82.1):
     resolution: {integrity: sha512-1wZ/PYvg+ZKwi5FX6YrvbB31jMAdurS+CmRQLwWCVSlfzJC85l/a6RVICqUHFa+jXyhilfnCyjafzJGbmz5tcA==}
     engines: {node: '>= 14.15.0'}
     peerDependencies:
@@ -3710,12 +3691,13 @@ packages:
         optional: true
     dependencies:
       cssnano: 6.0.0(postcss@8.4.21)
+      esbuild: 0.17.19
       jest-worker: 29.5.0
       postcss: 8.4.21
       schema-utils: 4.0.0
       serialize-javascript: 6.0.1
       source-map: 0.6.1
-      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(webpack-cli@5.0.1)
+      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(esbuild@0.17.19)(webpack-cli@5.0.1)
     dev: true
 
   /css-select@4.3.0:
@@ -4290,7 +4272,7 @@ packages:
       esbuild: 0.17.19
       get-tsconfig: 4.5.0
       loader-utils: 2.0.4
-      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(webpack-cli@5.0.1)
+      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(esbuild@0.17.19)(webpack-cli@5.0.1)
       webpack-sources: 1.4.3
     dev: true
 
@@ -4322,7 +4304,6 @@ packages:
       '@esbuild/win32-arm64': 0.17.19
       '@esbuild/win32-ia32': 0.17.19
       '@esbuild/win32-x64': 0.17.19
-    dev: true
 
   /escalade@3.1.1:
     resolution: {integrity: sha512-k0er2gUkLf8O0zKJiAhmkTnJlTvINGv7ygDNPbeIsX/TJjGJZHuh9B2UxbsaEkmlEo9MfhrSzmhIlhRlI2GXnw==}
@@ -5475,7 +5456,7 @@ packages:
       lodash: 4.17.21
       pretty-error: 4.0.0
       tapable: 2.2.1
-      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(webpack-cli@5.0.1)
+      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(esbuild@0.17.19)(webpack-cli@5.0.1)
     dev: true
 
   /htmlparser2@6.1.0:
@@ -6117,7 +6098,7 @@ packages:
     dependencies:
       klona: 2.0.6
       less: 4.1.3
-      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(webpack-cli@5.0.1)
+      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(esbuild@0.17.19)(webpack-cli@5.0.1)
     dev: true
 
   /less@4.1.3:
@@ -6571,7 +6552,7 @@ packages:
       webpack: ^5.0.0
     dependencies:
       schema-utils: 4.0.0
-      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(webpack-cli@5.0.1)
+      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(esbuild@0.17.19)(webpack-cli@5.0.1)
     dev: true
 
   /minimalistic-assert@1.0.1:
@@ -7194,7 +7175,7 @@ packages:
       semver: 7.3.8
       ts-node: 10.9.1(@swc/core@1.3.57)(@types/node@18.15.11)(typescript@5.0.3)
       typescript: 5.0.3
-      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(webpack-cli@5.0.1)
+      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(esbuild@0.17.19)(webpack-cli@5.0.1)
     transitivePeerDependencies:
       - '@types/node'
     dev: true
@@ -7563,7 +7544,7 @@ packages:
       webpack: '>=5.0.0'
     dependencies:
       purgecss: 5.0.0
-      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(webpack-cli@5.0.1)
+      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(esbuild@0.17.19)(webpack-cli@5.0.1)
     dev: true
 
   /purgecss@5.0.0:
@@ -7944,7 +7925,7 @@ packages:
       klona: 2.0.6
       neo-async: 2.6.2
       sass: 1.60.0
-      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(webpack-cli@5.0.1)
+      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(esbuild@0.17.19)(webpack-cli@5.0.1)
     dev: true
 
   /sass@1.60.0:
@@ -8250,7 +8231,7 @@ packages:
       webpack: ^1 || ^2 || ^3 || ^4 || ^5
     dependencies:
       chalk: 4.1.2
-      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(webpack-cli@5.0.1)
+      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(esbuild@0.17.19)(webpack-cli@5.0.1)
     dev: true
 
   /split2@3.2.2:
@@ -8448,7 +8429,7 @@ packages:
     peerDependencies:
       webpack: ^5.0.0
     dependencies:
-      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(webpack-cli@5.0.1)
+      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(esbuild@0.17.19)(webpack-cli@5.0.1)
     dev: true
 
   /style-search@0.1.0:
@@ -8590,7 +8571,7 @@ packages:
       klona: 2.0.6
       normalize-path: 3.0.0
       stylus: 0.59.0
-      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(webpack-cli@5.0.1)
+      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(esbuild@0.17.19)(webpack-cli@5.0.1)
     dev: true
 
   /stylus@0.59.0:
@@ -8664,7 +8645,7 @@ packages:
       webpack: '>=2'
     dependencies:
       '@swc/core': 1.3.57
-      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(webpack-cli@5.0.1)
+      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(esbuild@0.17.19)(webpack-cli@5.0.1)
     dev: true
 
   /table@6.8.1:
@@ -8683,7 +8664,7 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
-  /terser-webpack-plugin@5.3.7(@swc/core@1.3.57)(webpack@5.82.1):
+  /terser-webpack-plugin@5.3.7(@swc/core@1.3.57)(esbuild@0.17.19)(webpack@5.82.1):
     resolution: {integrity: sha512-AfKwIktyP7Cu50xNjXF/6Qb5lBNzYaWpU6YfoX3uZicTx0zTy0stDDCsvjDapKsSDvOeWo5MEq4TmdBy2cNoHw==}
     engines: {node: '>= 10.13.0'}
     peerDependencies:
@@ -8701,11 +8682,12 @@ packages:
     dependencies:
       '@jridgewell/trace-mapping': 0.3.17
       '@swc/core': 1.3.57
+      esbuild: 0.17.19
       jest-worker: 27.5.1
       schema-utils: 3.1.1
       serialize-javascript: 6.0.1
       terser: 5.16.8
-      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(webpack-cli@5.0.1)
+      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(esbuild@0.17.19)(webpack-cli@5.0.1)
     dev: true
 
   /terser@5.16.8:
@@ -8739,7 +8721,7 @@ packages:
       loader-utils: 2.0.4
       neo-async: 2.6.2
       schema-utils: 3.1.1
-      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(webpack-cli@5.0.1)
+      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(esbuild@0.17.19)(webpack-cli@5.0.1)
     dev: true
 
   /through2@2.0.5:
@@ -9066,7 +9048,7 @@ packages:
       mime-types: 2.1.35
       range-parser: 1.2.1
       schema-utils: 4.0.0
-      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(webpack-cli@5.0.1)
+      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(esbuild@0.17.19)(webpack-cli@5.0.1)
     dev: true
 
   /webpack-dev-server@4.13.2(webpack-cli@5.0.1)(webpack@5.82.1):
@@ -9110,7 +9092,7 @@ packages:
       serve-index: 1.9.1
       sockjs: 0.3.24
       spdy: 4.0.2
-      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(webpack-cli@5.0.1)
+      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(esbuild@0.17.19)(webpack-cli@5.0.1)
       webpack-cli: registry.npmmirror.com/webpack-cli@5.0.1(webpack-bundle-analyzer@4.8.0)(webpack-dev-server@4.13.2)(webpack@5.82.1)
       webpack-dev-middleware: 5.3.3(webpack@5.82.1)
       ws: 8.13.0
@@ -9146,7 +9128,7 @@ packages:
       consola: 2.15.3
       pretty-time: 1.1.0
       std-env: 3.3.2
-      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(webpack-cli@5.0.1)
+      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(esbuild@0.17.19)(webpack-cli@5.0.1)
     dev: true
 
   /websocket-driver@0.7.4:
@@ -9618,7 +9600,7 @@ packages:
       webpack: 5.x.x
       webpack-cli: 5.x.x
     dependencies:
-      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(webpack-cli@5.0.1)
+      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(esbuild@0.17.19)(webpack-cli@5.0.1)
       webpack-cli: registry.npmmirror.com/webpack-cli@5.0.1(webpack-bundle-analyzer@4.8.0)(webpack-dev-server@4.13.2)(webpack@5.82.1)
     dev: true
 
@@ -9632,7 +9614,7 @@ packages:
       webpack: 5.x.x
       webpack-cli: 5.x.x
     dependencies:
-      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(webpack-cli@5.0.1)
+      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(esbuild@0.17.19)(webpack-cli@5.0.1)
       webpack-cli: registry.npmmirror.com/webpack-cli@5.0.1(webpack-bundle-analyzer@4.8.0)(webpack-dev-server@4.13.2)(webpack@5.82.1)
     dev: true
 
@@ -9650,7 +9632,7 @@ packages:
       webpack-dev-server:
         optional: true
     dependencies:
-      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(webpack-cli@5.0.1)
+      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(esbuild@0.17.19)(webpack-cli@5.0.1)
       webpack-cli: registry.npmmirror.com/webpack-cli@5.0.1(webpack-bundle-analyzer@4.8.0)(webpack-dev-server@4.13.2)(webpack@5.82.1)
       webpack-dev-server: 4.13.2(webpack-cli@5.0.1)(webpack@5.82.1)
     dev: true
@@ -10249,7 +10231,7 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
-  registry.npmmirror.com/terser-webpack-plugin@5.3.7(@swc/core@1.3.57)(webpack@5.82.1):
+  registry.npmmirror.com/terser-webpack-plugin@5.3.7(@swc/core@1.3.57)(esbuild@0.17.19)(webpack@5.82.1):
     resolution: {integrity: sha512-AfKwIktyP7Cu50xNjXF/6Qb5lBNzYaWpU6YfoX3uZicTx0zTy0stDDCsvjDapKsSDvOeWo5MEq4TmdBy2cNoHw==, registry: https://registry.npmjs.org/, tarball: https://registry.npmmirror.com/terser-webpack-plugin/-/terser-webpack-plugin-5.3.7.tgz}
     id: registry.npmmirror.com/terser-webpack-plugin/5.3.7
     name: terser-webpack-plugin
@@ -10270,11 +10252,12 @@ packages:
     dependencies:
       '@jridgewell/trace-mapping': registry.npmmirror.com/@jridgewell/trace-mapping@0.3.17
       '@swc/core': 1.3.57
+      esbuild: 0.17.19
       jest-worker: registry.npmmirror.com/jest-worker@27.5.1
       schema-utils: registry.npmmirror.com/schema-utils@3.1.2
       serialize-javascript: registry.npmmirror.com/serialize-javascript@6.0.1
       terser: registry.npmmirror.com/terser@5.16.8
-      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(webpack-cli@5.0.1)
+      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(esbuild@0.17.19)(webpack-cli@5.0.1)
     dev: true
 
   registry.npmmirror.com/terser@5.16.8:
@@ -10354,7 +10337,7 @@ packages:
       import-local: registry.npmmirror.com/import-local@3.1.0
       interpret: registry.npmmirror.com/interpret@3.1.1
       rechoir: registry.npmmirror.com/rechoir@0.8.0
-      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(webpack-cli@5.0.1)
+      webpack: registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(esbuild@0.17.19)(webpack-cli@5.0.1)
       webpack-bundle-analyzer: 4.8.0
       webpack-dev-server: 4.13.2(webpack-cli@5.0.1)(webpack@5.82.1)
       webpack-merge: registry.npmmirror.com/webpack-merge@5.8.0
@@ -10377,7 +10360,7 @@ packages:
     engines: {node: '>=10.13.0'}
     dev: true
 
-  registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(webpack-cli@5.0.1):
+  registry.npmmirror.com/webpack@5.82.1(@swc/core@1.3.57)(esbuild@0.17.19)(webpack-cli@5.0.1):
     resolution: {integrity: sha512-C6uiGQJ+Gt4RyHXXYt+v9f+SN1v83x68URwgxNQ98cvH8kxiuywWGP4XeNZ1paOzZ63aY3cTciCEQJNFUljlLw==, registry: https://registry.npmjs.org/, tarball: https://registry.npmmirror.com/webpack/-/webpack-5.82.1.tgz}
     id: registry.npmmirror.com/webpack/5.82.1
     name: webpack
@@ -10411,7 +10394,7 @@ packages:
       neo-async: registry.npmmirror.com/neo-async@2.6.2
       schema-utils: registry.npmmirror.com/schema-utils@3.1.2
       tapable: registry.npmmirror.com/tapable@2.2.1
-      terser-webpack-plugin: registry.npmmirror.com/terser-webpack-plugin@5.3.7(@swc/core@1.3.57)(webpack@5.82.1)
+      terser-webpack-plugin: registry.npmmirror.com/terser-webpack-plugin@5.3.7(@swc/core@1.3.57)(esbuild@0.17.19)(webpack@5.82.1)
       watchpack: registry.npmmirror.com/watchpack@2.4.0
       webpack-cli: registry.npmmirror.com/webpack-cli@5.0.1(webpack-bundle-analyzer@4.8.0)(webpack-dev-server@4.13.2)(webpack@5.82.1)
       webpack-sources: registry.npmmirror.com/webpack-sources@3.2.3
