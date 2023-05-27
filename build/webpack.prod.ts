@@ -64,6 +64,8 @@ const prodConfig: Configuration = merge(baseConfig, {
     })
   ],
   optimization: {
+    concatenateModules: true, // 开启模块合并
+    usedExports: true, // 开启tree-shaking
     splitChunks: {
       // 分隔代码
       cacheGroups: {
@@ -90,8 +92,11 @@ const prodConfig: Configuration = merge(baseConfig, {
     },
     minimize: true, // 开启压缩
     minimizer: [
-      new CssMinimizerPlugin(), // 压缩css
+      new CssMinimizerPlugin({
+        minify: CssMinimizerPlugin.esbuildMinify // 自定义压缩器，需要依赖其他包，这里使用esbuild
+      }), // 压缩css
       new TerserPlugin({
+        minify: TerserPlugin.swcMinify, // 自定义压缩器，需要依赖其他包，这里使用swc
         parallel: true, // 开启多线程压缩
         terserOptions: {
           compress: {
@@ -106,6 +111,10 @@ const prodConfig: Configuration = merge(baseConfig, {
     maxAssetSize: 4000000, // 整数类型（以字节为单位）
     maxEntrypointSize: 5000000 // 整数类型（以字节为单位）
   }
+  // 最小化 watch 监控范围
+  // watchOptions: {
+  //   ignored: /node_modules/
+  // }
 })
 
 export default prodConfig
