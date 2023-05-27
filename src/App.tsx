@@ -1,8 +1,7 @@
+import { Suspense, useState } from 'react'
 import lessStyles from '@/app.less'
-import ClassComp from '@/components/Class'
+// import ClassComp from '@/components/Class'
 import { Demo1, Demo2 } from '@/components'
-
-import { lazy, Suspense, useState } from 'react'
 
 import LazyWrapper from '@/components/Lazy2'
 
@@ -17,17 +16,18 @@ function App() {
   return (
     <div>
       <Demo1 />
-      <div className={lessStyles['lessBox']}>
-        <div className={lessStyles['box']}>lessBox（天下无敌）</div>
+      <Demo2 />
+      <div className={lessStyles.lessBox}>
+        <div className={lessStyles.box}>lessBox（天下无敌）</div>
       </div>
       <h2 onClick={handleOnClick}>展示</h2>
       {show && (
         <Suspense fallback={<div>loading1...</div>}>
-          <LazyWrapper path="LazyDemo" />
+          <LazyWrapper path='LazyDemo' />
         </Suspense>
       )}
 
-      <ClassComp />
+      {/* <ClassComp /> */}
     </div>
   )
 }

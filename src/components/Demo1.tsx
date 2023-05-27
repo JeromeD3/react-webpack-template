@@ -4,7 +4,7 @@ const PreFetchDemo = lazy(
   () =>
     import(
       /* webpackChunkName: "PreFetchDemo" */
-      /*webpackPrefetch: true*/
+      /* webpackPrefetch: true */
       '@/components/PreFetchDemo'
     )
 )
@@ -14,7 +14,7 @@ const PreloadDemo = lazy(
   () =>
     import(
       /* webpackChunkName: "PreloadDemo" */
-      /*webpackPreload: true*/
+      /* webpackPreload: true */
       '@/components/PreloadDemo'
     )
 )
