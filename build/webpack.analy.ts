@@ -12,8 +12,8 @@ const smp = new SpeedMeasurePlugin()
 const analyConfig: Configuration = smp.wrap(
   merge(prodConfig, {
     plugins: [
-      new BundleAnalyzerPlugin(), // 配置分析打包结果插件
-    ],
+      new BundleAnalyzerPlugin() // 配置分析打包结果插件
+    ]
   })
 )
 

@@ -4,7 +4,7 @@ import * as dotenv from 'dotenv'
 import WebpackBar from 'webpackbar'
 
 const path = require('path')
-const nodeExternals = require('webpack-node-externals')
+// const nodeExternals = require('webpack-node-externals')
 
 const tsxRegex = /\.(ts|tsx)$/
 const cssRegex = /\.css$/
@@ -269,6 +269,8 @@ const baseConfig: Configuration = {
   cache: {
     type: 'filesystem' // 使用文件缓存
   }
+  // 用于统计模块构建耗时、模块依赖关系等信息  --> 使用方法：npx webpack --json=stats.json
+  // profile: true
   // 打包排除第三方依赖 --> 一般用于编写第三方库的时候会用到，防止将第三方库打包进去
   // externals: [nodeExternals()]
 }

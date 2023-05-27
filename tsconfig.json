@@ -7,7 +7,7 @@
     "resolveJsonModule": true,
     // 开启装饰器使用
     "experimentalDecorators": true,
-    "target": "es2016",
+    "target": "ES2022",
     "noEmit": true, // 不生成输出文件
     "esModuleInterop": true,
     "module": "commonjs",
