@@ -2,24 +2,25 @@
 @color: red;
 
 .lessBox {
-    .box {
-        color: @color;
-        background-color: lightblue;
-        translate: 100px;
-        border: 2px solid red;
-        animation: myfirst 5s;
+  .box {
+    color: @color;
+    background-color: lightblue;
+    translate: 100px;
+    border: 2px solid red;
+    animation: myfirst 5s;
 
-        &:before{
-            @arr: 'hello', 'world';
-            content: `@{arr}.join(' ').toUpperCase()`;
-          }
+    &:before {
+      @arr: 'hello', 'world';
+      content: ` @{arr}.join(' ') .toUpperCase() `;
     }
+  }
 }
 
-
-@keyframes myfirst
-{
-    from {background: red;}
-    to {background: yellow;}
+@keyframes myfirst {
+  from {
+    background: red;
+  }
+  to {
+    background: yellow;
+  }
 }
- 
