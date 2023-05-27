@@ -33,7 +33,16 @@ const devConfig: Configuration = merge(baseConfig, {
   devtool: 'eval-cheap-module-source-map', // 可以定位到源代码的错误位置
   plugins: [
     new ReactRefreshWebpackPlugin() // 添加热更新插件
-  ]
+  ],
+  // 开发环境不需要产物优化
+  optimization: {
+    removeAvailableModules: false, // 关闭模块懒加载
+    removeEmptyChunks: false, // 关闭空模块
+    splitChunks: false, // 关闭代码分包
+    minimize: false, // 关闭代码压缩
+    concatenateModules: false, // 关闭模块合并
+    usedExports: false // 关闭 Tree-shaking 功能；
+  }
 })
 
 const devServer = new WebpackDevServer(
